@@ -1,6 +1,10 @@
 # Webcode_FreeShippingReminder
 
-Magento 2: tells the customer how much is left to free shipping. Free, OSL-3.0. Install from repo.webcode.bg/public.
+Free-shipping reminder in the cart: tells the customer how much is left to reach free shipping, using either the free shipping method's threshold or a subtotal you set.
+
+## Configuration
+
+Stores → Configuration → Sales → Checkout → **Free Shipping Reminder**.
 
 ## Installation
 
