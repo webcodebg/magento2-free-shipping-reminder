@@ -1,0 +1,27 @@
+<?php
+/** @noinspection PhpUnhandledExceptionInspection */
+
+/** @var \Webcode\FreeShippingReminder\Block\Reminder $block */
+/** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */
+?>
+<?php if ($block->getFreeShippingSubtotal() > 0) : ?>
+    <div class="free-shipping-reminder">
+        <div id="free-shipping-reminder-content" data-bind="scope:'cart-free-shipping-reminder'">
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <?= /* @noEscape */ $secureRenderer->renderTag('script', ['type' => 'text/javascript'],
+                'maxPrice=' . $block->getFreeShippingSubtotal() .';
+                priceFormat=' . $block->getPriceformat(), false)
+            ?>
+            <script type="text/x-magento-init">
+             {
+                 "#free-shipping-reminder-content": {
+                     "Magento_Ui/js/core/app": <?= /* @escapeNotVerified */ $block->getJsLayout();?>
+                 },
+                 "*": {
+                     "Magento_Ui/js/block-loader": "<?= /* @escapeNotVerified */ $block->getViewFileUrl('images/loader-1.gif') ?>"
+                 }
+             }
+         </script>
+        </div>
+    </div>
+<?php endif ?>

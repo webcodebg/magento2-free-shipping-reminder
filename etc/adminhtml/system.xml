@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+  ~ @package      Webcode_Magento2
+  ~
+  ~ @author       Kostadin Bashev (bashev@webcode.bg)
+  ~ @copyright    Copyright © 2020 Webcode Ltd. (https://webcode.bg/)
+  ~ @license      See LICENSE.txt for license details.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="webcode_freeshippingreminder" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Free Shipping Reminder</label>
+            <tab>webcode</tab>
+            <resource>Webcode_FreeShippingReminder::reminder</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="use_free_shipping_method_value" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Use Free Shipping Method Value</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment><![CDATA[If use Free Shipping Value amount for free shipping will be based on the shipping method Free Shipping. If you want to use different value choose "No" and specify it.]]></comment>
+                </field>
+                <field id="free_shipping_subtotal" translate="label" type="text" sortOrder="21" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Free shipping subtotal</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="use_free_shipping_method_value">0</field>
+                    </depends>
+                    <validate>required-entry validate-length minimum-length-1 maximum-length-10</validate>
+                </field>
+                <field id="message" translate="label comment" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Message</label>
+                    <comment><![CDATA[Text shown in the cart and the mini cart. Use <strong>%1</strong> for the remaining amount, HTML is allowed. Leave empty to use the default translated text.]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
+

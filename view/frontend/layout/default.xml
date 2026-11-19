@@ -1,0 +1,30 @@
+<!--
+  ~ @package      Webcode_Magento2
+  ~
+  ~ @author       Kostadin Bashev (bashev@webcode.bg)
+  ~ @copyright    Copyright © 2020 Webcode Ltd. (https://webcode.bg/)
+  ~ @license      See LICENSE.txt for license details.
+  -->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="minicart.addons">
+            <block class="Webcode\FreeShippingReminder\Block\Reminder" name="free-shipping-reminder-minicart" template="Webcode_FreeShippingReminder::reminder.phtml" before="-">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="cart-free-shipping-reminder" xsi:type="array">
+                                <item name="component" xsi:type="string">Webcode_FreeShippingReminder/js/view/free-shipping-reminder</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">Webcode_FreeShippingReminder/free-shipping-reminder/content</item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="minicart" template="Webcode_FreeShippingReminder::cart/minicart.phtml"/>
+    </body>
+</page>

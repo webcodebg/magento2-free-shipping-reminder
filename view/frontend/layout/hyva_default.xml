@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+  ~ @package   Webcode_FreeShippingReminder
+  ~ @copyright Copyright © 2021–2026 Webcode (https://webcode.bg/)
+  ~ @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
+  -->
+<!--
+  Hyvä: the minicart reminder is a Knockout/RequireJS component (Luma). On a Hyvä
+  theme it would load dead Luma JS, so it is removed here; a Hyvä theme draws its
+  own bar from ViewModel\FreeShipping.
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="free-shipping-reminder-minicart" remove="true"/>
+    </body>
+</page>
