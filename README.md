@@ -2,9 +2,20 @@
 
 Free-shipping reminder in the cart: tells the customer how much is left to reach free shipping, using either the free shipping method's threshold or a subtotal you set.
 
+## How
+
+- The reminder shows at the top of the mini cart and of the cart summary: the message plus a progress bar *subtotal / threshold*. It follows the cart without a page reload, and hides when the cart is empty or the subtotal reaches the threshold.
+- Default text: *You only have %1 left for free delivery* (translated; Bulgarian included), where `%1` is the remaining amount in the store's currency.
+- Luma and Hyvä are both supported.
+
 ## Configuration
 
-Stores → Configuration → Sales → Checkout → **Free Shipping Reminder**.
+Stores → Configuration → Sales → Checkout → **Free Shipping Reminder**, per store view:
+
+- Enable
+- Use Free Shipping Method Value — take the threshold from the Free Shipping method (*Minimum Order Amount*); set to *No* to enter your own below.
+- Free shipping subtotal — your own threshold.
+- Message — your own text, `%1` for the remaining amount, HTML allowed; empty uses the default translated text.
 
 ## Installation
 
